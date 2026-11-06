@@ -348,7 +348,7 @@ function App() {
                           rel="noopener noreferrer"
                           className="project-link project-link-secondary"
                         >
-                          View on GitHub ↗
+                          View on GitHub
                         </a>
 
                         <a
@@ -357,7 +357,7 @@ function App() {
                           rel="noopener noreferrer"
                           className="project-link project-link-primary"
                         >
-                          Live Application ↗
+                          Live Application
                         </a>
                       </div>
 
@@ -406,7 +406,7 @@ function App() {
                           rel="noopener noreferrer"
                           className="project-link project-link-secondary"
                         >
-                          View on GitHub ↗
+                          View on GitHub
                         </a>
                       </div>
 
@@ -456,7 +456,7 @@ function App() {
                           rel="noopener noreferrer"
                           className="project-link project-link-secondary"
                         >
-                          View on GitHub ↗
+                          View on GitHub
                         </a>
                       </div>
                     </>
