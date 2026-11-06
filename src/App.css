@@ -32,7 +32,7 @@ a {
 
 .portfolio {
   min-height: 100vh;
-  overflow: hidden;
+  overflow: clip;
   background:
     radial-gradient(ellipse at 78% 12%, #3b285a 0%, transparent 35%),
     radial-gradient(ellipse at 15% 38%, #203b40 0%, transparent 32%),
@@ -42,12 +42,31 @@ a {
 /* Navigation */
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    backdrop-filter 0.35s ease,
+    padding 0.35s ease;
+}
+
+.site-header-scrolled {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  background: rgba(21, 17, 33, 0.88);
+  border-bottom-color: rgba(182, 164, 223, 0.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .site-logo {
@@ -222,7 +241,7 @@ a {
   max-width: 1120px;
   margin: 0 auto;
   padding: 100px 40px;
-  scroll-margin-top: 40px;
+  scroll-margin-top: 60px;
 }
 
 .content-section h2 {
@@ -667,12 +686,28 @@ a {
   .site-header {
     flex-direction: column;
     gap: 24px;
+    transition:
+      gap 0.35s ease,
+      padding 0.35s ease,
+      background 0.35s ease,
+      border-color 0.35s ease,
+      backdrop-filter 0.35s ease;
   }
 
   .site-header nav {
     justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
+  }
+
+  .site-header-scrolled {
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .site-header-scrolled .site-logo {
+    font-size: 24px;
   }
 
   .hero-section {
@@ -745,9 +780,9 @@ a {
   outline-offset: 4px;
 }
 
-#about > p:not(.section-label),
-#experience > p:not(.section-label),
-#contact > p:not(.section-label) {
+#about>p:not(.section-label),
+#experience>p:not(.section-label),
+#contact>p:not(.section-label) {
   max-width: 760px;
   margin-left: auto;
   margin-right: auto;
@@ -790,11 +825,9 @@ a {
   top: 20px;
   bottom: 0;
   width: 1px;
-  background: linear-gradient(
-    to bottom,
-    rgba(167, 139, 250, 0.5),
-    rgba(94, 234, 212, 0.2)
-  );
+  background: linear-gradient(to bottom,
+      rgba(167, 139, 250, 0.5),
+      rgba(94, 234, 212, 0.2));
 }
 
 .experience-marker {

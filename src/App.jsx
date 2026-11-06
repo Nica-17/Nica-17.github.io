@@ -93,6 +93,21 @@ function App() {
   const [enlargedImage, setEnlargedImage] = useState(null)
   const [enlargedVideo, setEnlargedVideo] = useState(null)
 
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   useEffect(() => {
     if (!enlargedImage) return
 
@@ -111,7 +126,7 @@ function App() {
 
   return (
     <div className="portfolio">
-      <header className="site-header">
+      <header className={`site-header ${isScrolled ? 'site-header-scrolled' : ''}`}>
         <a className="site-logo" href="#home">
           Nica<span>.</span>
         </a>
