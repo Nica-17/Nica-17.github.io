@@ -250,6 +250,7 @@ a {
 .project-card {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   min-height: 340px;
   padding: 32px;
   border: 1px solid #564768;
@@ -264,6 +265,12 @@ a {
   box-shadow:
     0 9px 20px #09061288,
     0 0 12px #91beba18;
+}
+
+
+.project-card:focus-visible {
+  outline: 2px solid #b9a5ff;
+  outline-offset: 4px;
 }
 
 .project-card-selected {

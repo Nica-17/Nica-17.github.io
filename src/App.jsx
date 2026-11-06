@@ -192,14 +192,27 @@ function App() {
 
           <div className="project-grid">
             {projects.map((project, index) => (
+
               <article
                 className={`project-card ${selectedProject === index ? 'project-card-selected' : ''}`}
                 key={project.name}
+                role="button"
+                tabIndex={0}
+                aria-expanded={selectedProject === index}
+                aria-label={`${project.name} project details`}
                 onClick={() => {
                   setSelectedProject(selectedProject === index ? null : index)
                   setSelectedScreenshot(0)
                 }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    setSelectedProject(selectedProject === index ? null : index)
+                    setSelectedScreenshot(0)
+                  }
+                }}
               >
+
                 <p className="project-category">{project.category}</p>
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
